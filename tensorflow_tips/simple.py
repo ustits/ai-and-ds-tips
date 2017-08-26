@@ -20,20 +20,6 @@ def work_with_non_constant():
   print(output)
 
 
-def math():
-  """take two tensor, apply operation, get another tensor"""
-  add = tf.add(5, 2)
-  subtract = tf.subtract(7, 3)
-  multiply = tf.multiply(4, 3)
-  return add, subtract, multiply
-
-
-def some_complex_math():
-  x = tf.constant(10)
-  y = tf.constant(2)
-  z = tf.subtract(tf.divide(x, y), 1)
-  return z
-
-
-def converting_types():
-  return tf.add(tf.constant(1), tf.cast(tf.constant(2.0), tf.int32))
+def modifiable_variable():
+  x = tf.Variable(42)
+  return tf.global_variables_initializer()
