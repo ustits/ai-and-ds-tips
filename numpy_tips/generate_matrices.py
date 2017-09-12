@@ -14,3 +14,6 @@ print(R)
 G = np.random.rand(10, 10)
 G.mean()
 G.var()
+
+random_ints = np.random.randint(10, size=12)
+print(random_ints)
