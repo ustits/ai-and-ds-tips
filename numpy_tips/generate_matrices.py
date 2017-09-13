@@ -17,3 +17,9 @@ G.var()
 
 random_ints = np.random.randint(10, size=12)
 print(random_ints)
+
+int_range = np.arange(3)
+float_range = np.arange(3.0)
+print(int_range, float_range)
+int_with_step = np.arange(100, 200, step=42)
+print(int_with_step)
