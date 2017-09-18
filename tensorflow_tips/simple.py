@@ -6,8 +6,8 @@ def run_session(tensor):
   print(output)
 
 
+# defining a simple tensor
 def simple():
-  """defining a simple tensor"""
   return tf.constant('Hello world!')
 
 
@@ -21,8 +21,22 @@ def work_with_non_constant():
   print(output)
 
 
+# Variables are available across several sessions
+def run_variable(x):
+  sess = tf.Session()
+  # must initialize variables at first
+  sess.run(tf.global_variables_initializer())
+  result = sess.run(x)
+  print(result)
+
+
 def modifiable_variable():
   x = tf.Variable(42)
+  run_variable(x)
+
+
+def generate_variable():
+  x = tf.get_variable("some_var", shape=[2, 3])
   run_variable(x)
 
 
@@ -32,11 +46,3 @@ def variable_generator():
   result_to = 1
   x = tf.Variable(tf.random_uniform(shape, result_from, result_to))
   run_variable(x)
-
-
-def run_variable(x):
-  sess = tf.Session()
-  # must initialize variables at first
-  sess.run(tf.global_variables_initializer())
-  result = sess.run(x)
-  print(result)
